@@ -9,7 +9,7 @@ describe('findMissingValue', () => {
   })
 
   it('finds nth missing value between given min and max values', () => {
-    const values = [1, 3, 5, 6, 8, 10, 15]
+    const values = [1, 8, 3, 5, 6, 10, 15]
     const nthMissing = 3
 
     expect(findMissingValue(values, nthMissing)).toBe(7)
@@ -28,13 +28,14 @@ describe('findMissingValue', () => {
   })
 
   it('returns nth missing value even if array is empty', () => {
-    expect(findMissingValue([])).toBe(1)
+    const data: number[] = []
+    expect(findMissingValue(data)).toBe(1)
 
     Array.from([2, 3, 5, 10, 100]).forEach(value => {
-      expect(findMissingValue([], value)).toBe(value)
-      expect(findMissingValue([], value)).toBe(value)
-      expect(findMissingValue([], value)).toBe(value)
-      expect(findMissingValue([], value)).toBe(value)
+      expect(findMissingValue(data, value)).toBe(value)
+      expect(findMissingValue(data, value)).toBe(value)
+      expect(findMissingValue(data, value)).toBe(value)
+      expect(findMissingValue(data, value)).toBe(value)
     })
   })
 })
