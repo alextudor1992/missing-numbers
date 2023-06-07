@@ -21,4 +21,20 @@ describe('findMissingValue', () => {
 
     expect(findMissingValue(values, nthMissing)).toBe(5)
   })
+
+  it('throws error if negative values are passed', () => {
+    const values = [-1, 2, 3, 4]
+    expect(() => findMissingValue(values)).toThrow(Error)
+  })
+
+  it('returns nth missing value even if array is empty', () => {
+    expect(findMissingValue([])).toBe(1)
+
+    Array.from([2, 3, 5, 10, 100]).forEach(value => {
+      expect(findMissingValue([], value)).toBe(value)
+      expect(findMissingValue([], value)).toBe(value)
+      expect(findMissingValue([], value)).toBe(value)
+      expect(findMissingValue([], value)).toBe(value)
+    })
+  })
 })
